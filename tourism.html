@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tourism - McCreary County Fiscal Court</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  /* Basic page setup */
+  body { 
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin:0; padding:0;
+    background:#f9f9f9; color:#333; line-height:1.6;
+  }
+  a { text-decoration: none; color: inherit; } 
+  a:hover { color: #1e305f; } /* links darken when hovered */
+
+  /* Header at top */
+  header { 
+    background: #132040; /* dark blue */
+    color: #fff; 
+    display:flex; justify-content:space-between; align-items:center; 
+    height:212px; padding:0 2rem; 
+    box-shadow:0 2px 6px rgba(0,0,0,0.2);
+  }
+  .logo-title { display:flex; align-items:center; gap:1rem; }
+  .logo-title a { display:flex; align-items:center; } /* makes logo clickable */
+  .logo-title img { height:180px; width:auto; }
+  .logo-title h1 { margin:0; font-size:1.6rem; font-weight:600; color:#fff; }
+  nav { display:flex; gap:1.5rem; }
+  nav a { 
+    color:#fff; font-weight:500; padding:0.4rem 0.8rem; border-radius:4px; 
+    transition: background 0.3s; 
+  }
+  nav a:hover, nav a.active { background:#1e305f; }
+
+  /* Hero slideshow section */
+  .hero { 
+    position:relative; height:60vh; display:flex; justify-content:center; align-items:center; 
+    color:#fff; text-align:center; overflow:hidden; 
+  }
+  .hero img { 
+    position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; 
+    transition:opacity 1s ease-in-out; z-index:1; opacity:0; /* hidden by default */
+  }
+  .hero img.active { opacity:1; } /* shows current slide */
+  .hero-text { position:relative; z-index:2; max-width:700px; padding:0 1rem; }
+  .hero-text h2, .hero-text p { color:#fff; text-shadow:none; }
+  .hero-text h2 { font-size:2.5rem; font-weight:700; margin-bottom:1rem; }
+  .hero-text p { font-size:1.2rem; }
+
+  /* Arrow buttons for slideshow */
+  .arrow { 
+    position:absolute; top:50%; transform:translateY(-50%); font-size:2rem; color:#fff; 
+    padding:0.5rem; cursor:pointer; background:rgba(0,0,0,0.3); border-radius:50%; z-index:3; 
+    transition: background 0.3s; 
+  }
+  .arrow:hover { background: rgba(0,0,0,0.5); } /* darker on hover */
+  .arrow-left { left:1rem; }
+  .arrow-right { right:1rem; }
+
+  /* Dot indicators for slideshow */
+  .dots { position:absolute; bottom:1rem; left:50%; transform:translateX(-50%); display:flex; gap:0.5rem; z-index:3; }
+  .dot { width:12px; height:12px; background:rgba(255,255,255,0.5); border-radius:50%; cursor:pointer; transition: background 0.3s; }
+  .dot.active { background:#fff; } /* white when active */
+
+  /* Main content area */
+  main { max-width:1100px; margin:2rem auto; padding:0 1rem; }
+  section { margin-bottom:2rem; }
+  h2 { color:#132040; font-size:1.8rem; margin-bottom:1rem; }
+  h3 { color:#132040; font-size:1.3rem; margin-bottom:0.75rem; }
+  p { margin-bottom:1rem; color:#555; }
+
+  /* Grid of attraction cards */
+  .cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; }
+  .card { 
+    background:#fff; border-radius:10px; overflow:hidden; 
+    box-shadow:0 3px 8px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; 
+    display:flex; flex-direction:column; 
+  }
+  .card img { width:100%; height:160px; object-fit:cover; transition:transform 0.3s; }
+  .card-content { padding:1rem; flex:1; display:flex; flex-direction:column; }
+  .card-content h4 { margin:0 0 0.5rem; color:#132040; font-size:1.2rem; }
+  .card-content p { flex:1; font-size:0.95rem; color:#555; }
+  .card-content a.button-link { 
+    display:inline-block; background-color:#132040; color:#fff; padding:0.5rem 1rem; 
+    border-radius:6px; text-align:center; margin-top:0.8rem; transition: background 0.3s; 
+  }
+  .card-content a.button-link:hover { background-color:#1e305f; }
+  .card:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.2); } /* lifts up */
+  .card:hover img { transform:scale(1.05); } /* zooms image slightly */
+
+  iframe { width:100%; border:0; border-radius:10px; }
+
+  /* Footer */
+  footer { background:#132040; color:#fff; text-align:center; padding:2rem 1rem; }
+  footer p { margin:0.5rem 0; font-size:0.95rem; }
+
+  /* Mobile adjustments */
+  @media (max-width:768px) {
+    .hero-text h2 { font-size:2rem; }
+    .hero-text p { font-size:1rem; }
+    .logo-title img { height:180px; }
+    nav { justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Top header -->
+<header>
+  <div class="logo-title">
+    <a href="index.html">
+       <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+      <h1>McCreary County Fiscal Court</h1>
+    </a>
+  </div>
+  <!-- Main navigation -->
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="events.html">Events</a>
+      <a href="records.html">Records</a>
+      <a href="tourism.html"class="active">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+  </nav>
+</header>
+
+<!-- Hero slideshow -->
+<div class="hero">
+  <!-- Images for slideshow -->
+  <img src="images/CFalls-Web.jpg" class="active" alt="Big South Fork">
+  <img src="images/Crack-in-the-rocks-Web.jpg" alt="Crack in the Rocks">
+  <img src="images/Djumps-Web.jpg" alt="Historic Sites">
+  <img src="images/Buzzrock-Web.jpg" alt="Historic Sites">
+  <img src="images/YOL-Web.jpg" alt="Historic Sites">
+  <img src="images/Jumps.jpg" alt="Historic Sites">
+  
+  <!-- Text on top of slideshow -->
+  <div class="hero-text">
+    <h2>Explore McCreary County</h2>
+    <p>Experience breathtaking natural landscapes, historic landmarks, and vibrant community events in the heart of Kentucky.</p>
+  </div>
+
+  <!-- Left and right arrows -->
+  <div class="arrow arrow-left">&#10094;</div>
+  <div class="arrow arrow-right">&#10095;</div>
+
+  <!-- Dots to show which slide you're on -->
+  <div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</div>
+
+<!-- Main content -->
+<main>
+  <section>
+    <h2>Top Attractions</h2>
+    <div class="cards">
+      <!-- Cards for each attraction -->
+      <div class="card">
+        <img src="images/Crack-in-the-rocks-Web.jpg" alt="Crack in the Rocks">
+        <div class="card-content">
+          <h4>Crack in the Rocks</h4>
+          <p>A unique rock formation perfect for adventurous hikes and exploration.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Cumberland-Falls-Web.jpg" alt="Cumberland Falls">
+        <div class="card-content">
+          <h4>Cumberland Falls</h4>
+          <p>Known as the "Niagara of the South," famous for its moonbow phenomenon.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Buzzrock-Web.jpg" alt="Buzzard Rock">
+        <div class="card-content">
+          <h4>Buzzard Rock</h4>
+          <p>Panoramic views of the forest and valleys, ideal for photography.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Jumps.jpg" alt="Devils Jumps">
+        <div class="card-content">
+          <h4>Devils Jumps</h4>
+          <p>A thrilling cliffside area for experienced hikers and nature enthusiasts.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/EagleFalls-Web.jpg" alt="Eagle Falls">
+        <div class="card-content">
+          <h4>Eagle Falls</h4>
+          <p>Hidden waterfall in the forest offering serene nature experiences.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/NatArch-Web.jpg" alt="Natural Arch">
+        <div class="card-content">
+          <h4>Natural Arch</h4>
+          <p>Iconic geological formation perfect for photography and hiking.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/Princess-Fass-Web.jpg" alt="Princess Falls">
+        <div class="card-content">
+          <h4>Princess Falls</h4>
+          <p>A picturesque waterfall known for its peaceful surroundings and photo spots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+  <h2>Find Us</h2>
+  <p>Explore McCreary County and plan your visit using the map below.</p>
+
+  <iframe
+    src="https://www.google.com/maps?q=McCreary+County,+Kentucky&output=embed"
+    height="450"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 McCreary County Fiscal Court</p>
+  <p>Whitley City, KY | Phone: 606-376-2413</p>
+</footer>
+
+<!-- JavaScript for slideshow -->
+<script>
+  const slides = document.querySelectorAll('.hero img'); // get all images
+  const dots = document.querySelectorAll('.dot'); // get all dots
+  const leftArrow = document.querySelector('.arrow-left');
+  const rightArrow = document.querySelector('.arrow-right');
+  let currentSlide = 0; // keeps track of current slide
+
+  function showSlide(index) {
+    // hide all slides and dots, then show the selected one
+    slides.forEach((img,i)=>img.classList.toggle('active', i===index));
+    dots.forEach((dot,i)=>dot.classList.toggle('active', i===index));
+    currentSlide = index;
+  }
+
+  function nextSlide(){ showSlide((currentSlide+1)%slides.length); } // go to next
+  function prevSlide(){ showSlide((currentSlide+slides.length-1)%slides.length); } // go to previous
+
+  // clicking arrows changes slides
+  rightArrow.addEventListener('click', ()=>{ nextSlide(); resetInterval(); });
+  leftArrow.addEventListener('click', ()=>{ prevSlide(); resetInterval(); });
+
+  // clicking dots jumps to that slide
+  dots.forEach((dot,i)=>dot.addEventListener('click', ()=>{ showSlide(i); resetInterval(); }));
+
+  // auto-advance every 5 seconds
+  let slideInterval = setInterval(nextSlide,5000);
+
+  function resetInterval(){ clearInterval(slideInterval); slideInterval=setInterval(nextSlide,5000); } // restart timer when user clicks
+</script>
+
+</body>
+</html>

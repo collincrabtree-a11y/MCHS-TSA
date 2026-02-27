@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McCreary County Fiscal Court</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    scroll-behavior: smooth;
+    background: #fff;
+    color: #333;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  a:hover, a:focus { text-decoration: none; }
+
+  header {
+    background: #132040;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 212px;
+    padding: 0 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .logo-title { display: flex; align-items: center; gap: 1rem; }
+  .logo-title a { display: flex; align-items: center; color: inherit; }
+  .logo-title img { height: 180px; width: auto; }
+  .logo-title h1 { margin: 0; font-size: 1.6rem; font-weight: 600; color: #fff; }
+
+  nav { display: flex; gap: 1.5rem; }
+  nav a {
+    color: #fff;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  nav a:hover, nav a.active { background: #1e305f; }
+
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 1s ease-in-out;
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    padding: 0 1rem;
+    color: #fff;
+  }
+
+  .hero-text h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    margin: 0;
+  }
+
+  main { padding: 2rem; max-width: 1100px; margin: auto; }
+  section {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  section:hover { transform: translateY(-3px); }
+
+  h2 {
+    background-color: #132040;
+    color: #ffffff;
+    margin-top: 0;
+    font-size: 1.8rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+  }
+
+  h3 { color: #ffffff; font-size: 1.2rem; }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .fact-card {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .fact-card:hover { transform: translateY(-5px); box-shadow: 0 5px 12px rgba(0,0,0,0.15); }
+  .fact-card i { font-size: 2rem; margin-bottom: 0.5rem; }
+  .fact-card h4 { color: #132040; font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .fact-card p { font-size: 1rem; color: #555; }
+
+  .fa-landmark { color: #b47f2a; }
+  .fa-users { color: #2a6db4; }
+  .fa-gavel { color: #4e342e; }
+  .fa-mountain-sun { color: #3c8c4e; }
+  .fa-handshake { color: #8c5ab4; }
+  .fa-tree { color: #2e7d32; }
+
+  footer { background: #132040; color: #fff; padding: 2rem; }
+  .footer-columns { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; max-width: 1100px; margin: auto; }
+  .footer-col { flex: 1 1 200px; }
+  footer p { margin: 0.25rem 0; }
+
+  @media (max-width: 1024px) { .hero-text h2 { font-size: 2.2rem; padding: 0 1rem; } }
+  @media (max-width: 768px) { nav { flex-wrap: wrap; justify-content: center; } .hero-text h2 { font-size: 1.8rem; padding: 0 1rem; } }
+  @media (max-width: 480px) { .hero-text h2 { font-size: 1.4rem; padding: 0 0.5rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <a href="index.html">
+      <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+      <h1>McCreary County Fiscal Court</h1>
+    </a>
+  </div>
+  <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="events.html">Events</a>
+      <a href="records.html">Records</a>
+      <a href="tourism.html">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <h2>Welcome to McCreary County</h2>
+  </div>
+</section>
+
+<main>
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Nestled between the Daniel Boone National Forest and the Big South Fork NRRA, McCreary County is rich in natural beauty, outdoor adventure, and cultural heritage. Explore landmarks like Natural Arch, historic Stearns, Barthell Coal Mining Camp, and the Sheltowee Trace Trail.</p>
+  </section>
+
+  <section id="quick-facts">
+    <h2>Quick Facts</h2>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <i class="fa-solid fa-landmark"></i>
+        <h4>Founded</h4>
+        <p>Established in 1912 — Kentucky's youngest county.</p>
+      </div>
+      <div class="fact-card">
+        <i class="fa-solid fa-users"></i>
+        <h4>Population</h4>
+        <p>Approximately 16,800 residents (2024).</p>
+      </div>
+      <div class="fact-card">
+        <i class="fa-solid fa-gavel"></i>
+        <h4>County Seat</h4>
+        <p>Whitley City, Kentucky.</p>
+      </div>
+      <div class="fact-card">
+        <i class="fa-solid fa-mountain-sun"></i>
+        <h4>Scenic Beauty</h4>
+        <p>Home to Daniel Boone National Forest and Big South Fork River.</p>
+      </div>
+      <div class="fact-card">
+        <i class="fa-solid fa-handshake"></i>
+        <h4>Community Focus</h4>
+        <p>Emphasizing service, integrity, and collaboration with residents.</p>
+      </div>
+      <div class="fact-card">
+        <i class="fa-solid fa-tree"></i>
+        <h4>Heritage</h4>
+        <p>Rich Appalachian culture and outdoor recreation opportunities.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-columns">
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <p>1 North Main Street</p>
+      <p>Whitley City, KY 42653</p>
+      <p>Phone: 606-376-2413</p>
+    </div>
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <p><a href="about.html">About Us</a></p>
+      <p><a href="events.html">Events</a></p>
+      <p><a href="countydepartments.html">Departments</a></p> 
+      <p><a href="records.html">Records</a></p>
+      <p><a href="contact.html">Contact</a></p>
+      <p><a href="resources.html">Resources</a></p>
+      <p><a href="tsaworklog.html">Reference Page</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Explore McCreary County</h3>
+      <p><a href="tourism.html">Tourism</a></p>
+    </div>
+  </div>
+  <p class="copyright">&copy; 2025 McCreary County Fiscal Court</p>
+</footer>
+
+<script>
+const heroImages = [
+  "images/jumps.jpg",
+  "images/YOL-Web.jpg",
+  "images/NatArch-Web.jpg"
+];
+  const hero = document.querySelector('.hero');
+  let currentIndex = 0;
+
+  heroImages.forEach(src => new Image().src = src);
+
+  hero.style.backgroundImage = `url('${heroImages[0]}')`;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % heroImages.length;
+    hero.style.backgroundImage = `url('${heroImages[currentIndex]}')`;
+  }, 5000);
+</script>
+</body>
+</html>

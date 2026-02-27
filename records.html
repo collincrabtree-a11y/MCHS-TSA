@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Court Records - McCreary County Fiscal Court</title>
+
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Basic page setup */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa; /* light background */
+      color: #333;
+      line-height: 1.6; /* easier to read */
+    }
+
+    a {
+      text-decoration: none; /* no underlines */
+      color: inherit;
+    }
+
+    /* Header at top */
+    header {
+      background: #132040; /* dark blue */
+      color: #fff;
+      display: flex;
+      justify-content: space-between; /* logo left, nav right */
+      align-items: center;
+      height: 212px;
+      padding: 0 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-title a {
+      display: flex;
+      align-items: center; /* makes whole thing clickable */
+    }
+
+    .logo-title img {
+      height: 180px;
+      width: auto; /* keeps proportions */
+    }
+
+    .logo-title h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem; /* space between links */
+    }
+
+    nav a {
+      color: #fff;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover, nav a.active {
+      background: #1e305f; /* darker when hovered */
+    }
+
+    /* Big hero section with image */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1590940292821-657d0e2b0f41?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      /* image centered, covers whole area */
+      color: #000000;
+      text-align: center;
+      padding: 5rem 2rem; /* lots of space top and bottom */
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* makes text readable on image */
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px; /* doesn't get too wide */
+      margin: auto;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Main content area */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto; /* centers content */
+      padding: 0 2rem;
+    }
+
+    section {
+      background: #fff;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #132040; /* dark blue headings */
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none; /* no bullet points */
+      padding: 0;
+    }
+
+    ul li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #eee; /* line between items */
+    }
+
+    /* Button-style links */
+    a.button-link {
+      display: inline-block;
+      background-color: #132040;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    a.button-link:hover {
+      background-color: #1e305f; /* darker on hover */
+    }
+
+    /* Footer */
+    footer {
+      background: #132040;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top header -->
+<header>
+  <div class="logo-title">
+    <a href="index.html">
+      <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+      <h1>McCreary County Fiscal Court</h1>
+    </a>
+  </div>
+  <!-- Main navigation -->
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="events.html">Events</a>
+      <a href="records.html"class="active">Records</a>
+      <a href="tourism.html">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+  </nav>
+</header>
+
+  <!-- Hero section -->
+  <div class="hero">
+    <h2>Court Records Access</h2>
+    <p>Learn how to access, request, and review public court records in McCreary County.</p>
+  </div>
+
+  <!-- Main content -->
+  <main>
+    <section>
+      <h2>Accessing Court Records</h2>
+      <p>The McCreary County Fiscal Court maintains records in accordance with state law. Records may include meeting minutes, ordinances, resolutions, and other official documents.</p>
+
+      <h3>Requesting Records</h3>
+      <ul>
+        <li>Submit a written request via mail or email to the Fiscal Court office.</li>
+        <li>Provide the specific record name, date, or topic to ensure accurate processing.</li>
+        <li>Some records may require a nominal copying fee.</li>
+      </ul>
+
+      <h3>Office Contact</h3>
+      <p>Address: 1 North Main Street, Whitley City, KY 42653</p>
+      <p>Phone: 606-376-2413</p>
+      <p>Email: <a href="mailto:records@mccrearycounty.com">records@mccrearycounty.com</a></p>
+      <p><a class="button-link" href="contact.html">Submit a Request</a></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 McCreary County Fiscal Court</p>
+    <p>Whitley City, KY | Phone: 606-376-2413</p>
+  </footer>
+</body>
+</html>

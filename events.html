@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Events - McCreary County Fiscal Court</title>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    header {
+      background: #132040;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 212px;
+      padding: 0 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .logo-title { display: flex; align-items: center; gap: 1rem; }
+    .logo-title a { display: flex; align-items: center; }
+    .logo-title img { height: 180px; width: auto; }
+    .logo-title h1 { margin: 0; font-size: 1.6rem; font-weight: 600; color: #fff; }
+
+    nav { display: flex; gap: 1.5rem; }
+    nav a { color: #fff; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: 4px; transition: background 0.3s; }
+    nav a:hover, nav a.active { background: #1e305f; }
+
+    .hero {
+      background-image: url("images/Buzzrock-Web.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(24, 24, 24, 0.5); }
+
+    .hero h2, .hero p { position: relative; z-index: 1; margin: 0.5rem; }
+    .hero h2 { font-size: 2.8rem; text-shadow: 2px 2px 5px rgba(0,0,0,0.5); }
+    .hero p { font-size: 1.2rem; max-width: 750px; text-shadow: 1px 1px 4px rgba(0,0,0,0.5); }
+
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 2rem; }
+
+    section {
+      background: #fff;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+
+    h2 { color: #ffffff; font-size: 1.6rem; margin-top: 0; display: flex; align-items: center; gap: 0.6rem; }
+    ul { list-style: none; padding: 0; margin: 1rem 0 0 0; }
+    ul li { padding: 0.75rem 0; border-bottom: 1px solid #eee; }
+    ul li:hover { background: #f9fbff; }
+    ul li strong { color: #1e305f; }
+
+    details {
+      border: none; margin-bottom: 1.5rem; background: #fff;
+      border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.3s ease;
+    }
+
+    summary {
+      font-weight: 600; cursor: pointer; font-size: 1.3rem; color: #fff;
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: #132040;
+      border-radius: 10px 10px 0 0;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    summary:hover { background: #0f2035; }
+    details[open] summary { background: #0f2035; }
+    summary::marker { color: #fff; }
+    details section { margin: 0; padding-top: 0; border-radius: 0 0 10px 10px; box-shadow: none; }
+
+    .calendar-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+      background: #fff;
+      margin-top: 1rem;
+    }
+
+    .calendar-container iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Overlay for bottom-left corner to hide "Add to Calendar" */
+    .calendar-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 16%;   /* approximate button width */
+      height: 8%;   /* approximate button height */
+      background: #fff; /* matches calendar background */
+      z-index: 10;
+      pointer-events: all; /* blocks clicks */
+      border-radius: 0 0 0 12px;
+    }
+
+    @media (max-width: 768px) {
+      .calendar-container iframe { height: 500px; }
+      .calendar-overlay { width: 20%; height: 10%; }
+    }
+
+    @media (max-width: 480px) {
+      .calendar-container iframe { height: 420px; }
+      .calendar-overlay { width: 25%; height: 12%; }
+    }
+
+    footer { background: #132040; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    footer p { margin: 0.5rem 0; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      nav { flex-wrap: wrap; justify-content: center; }
+      .hero h2 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 { font-size: 1.8rem; }
+      nav a { font-size: 0.9rem; padding: 0.4rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-title">
+      <a href="index.html">
+        <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+        <h1>McCreary County Fiscal Court</h1>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="events.html" class="active">Events</a>
+      <a href="records.html">Records</a>
+      <a href="tourism.html">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Upcoming Events & Meetings</h2>
+    <p>Stay informed about Fiscal Court meetings, community programs, and local activities happening across McCreary County.</p>
+  </div>
+
+  <main>
+    <details open>
+      <summary>Government & Civic Engagement</summary>
+      <section>
+        <ul>
+          <li><strong>Fiscal Court Meeting</strong> – Second Thursday of every month at 6:00 PM, Fiscal Courtroom, Whitley City.</li>
+          <li><strong>Public Hearings</strong> – Budget, zoning, and ordinance discussions announced as needed.</li>
+          <li><strong>Town Hall Meetings</strong> – Informal Q&A sessions with the Judge/Executive and Magistrates.</li>
+          <li><strong>Budget Workshops</strong> – Learn how county funds are allocated to local programs.</li>
+          <li><strong>Election Information Events</strong> – Voter registration and election education sessions.</li>
+        </ul>
+      </section>
+    </details>
+
+    <details>
+      <summary>Community & Public Services</summary>
+      <section>
+        <ul>
+          <li><strong>Community Cleanup Day</strong> – May 15, 2025, 9:00 AM–3:00 PM, Various County Locations.</li>
+          <li><strong>Recycling Drop-Off Day</strong> – First Saturday monthly, County Transfer Station.</li>
+          <li><strong>Public Safety Awareness Week</strong> – Meet EMS, Fire, and Sheriff's Departments.</li>
+          <li><strong>Volunteer Recognition Event</strong> – Honoring community volunteers and organizations.</li>
+          <li><strong>Veterans Appreciation Ceremony</strong> – November 11, 2025, Courthouse Lawn.</li>
+        </ul>
+      </section>
+    </details>
+
+    <details>
+      <summary>Recreation & Tourism</summary>
+      <section>
+        <ul>
+          <li><strong>McCreary County Fair</strong> – August 10–14, 2025, McCreary County Fairgrounds.</li>
+          <li><strong>Historical Walking Tour</strong> – September 5, 2025, 10:00 AM, Downtown Whitley City.</li>
+          <li><strong>Fall Heritage Festival</strong> – October 12, 2025, Sandhill Park.</li>
+          <li><strong>Christmas Parade & Tree Lighting</strong> – December 6, 2025, Courthouse Square.</li>
+          <li><strong>Concert in the Park Series</strong> – Summer evenings featuring local artists and food vendors.</li>
+        </ul>
+      </section>
+    </details>
+
+    <details>
+      <summary>Economic & Development</summary>
+      <section>
+        <ul>
+          <li><strong>Small Business Roundtable</strong> – Quarterly networking for local entrepreneurs.</li>
+          <li><strong>Grant & Funding Workshop</strong> – Learn about available county and state assistance programs.</li>
+          <li><strong>Job & Resource Fair</strong> – June 20, 2025, McCreary Central High School Gym.</li>
+          <li><strong>Infrastructure Project Updates</strong> – Open house discussions for upcoming county improvements.</li>
+        </ul>
+      </section>
+    </details>
+
+    <details>
+      <summary>Education & Transparency</summary>
+      <section>
+        <ul>
+          <li><strong>Civic Education Series</strong> – "How County Government Works" sessions for the public.</li>
+          <li><strong>Open Data Portal Launch</strong> – Learn how to access county data and resources.</li>
+          <li><strong>School Partnership Events</strong> – Student shadow programs and government day activities.</li>
+        </ul>
+      </section>
+    </details>
+
+    <section>
+      <h2>County Events Calendar</h2>
+      <p>View our full event schedule below. Click on any event for more details.</p>
+      <div class="calendar-container">
+        <iframe 
+          src="https://calendar.google.com/calendar/embed?src=c_2f3a3e87aea482189ad32c2c876b6e626675d98d5f02e94fd8fdeb501a85c01a%40group.calendar.google.com&ctz=America%2FNew_York&mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0" 
+          frameborder="0" 
+          scrolling="no">
+        </iframe>
+        <div class="calendar-overlay"></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Follow our Facebook for more information!</h2>
+      <p>Visit the <a href="https://www.facebook.com/p/McCreary-County-Fiscal-Court-61575088880712/" target="_blank">official McCreary County Fiscal Court Facebook</a> for registration details, meeting minutes, and the latest updates on upcoming events.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 McCreary County Fiscal Court</p>
+    <p>Whitley City, KY | Phone: 606-376-2413</p>
+  </footer>
+</body>
+</html>

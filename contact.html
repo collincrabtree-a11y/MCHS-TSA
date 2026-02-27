@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact - McCreary County Fiscal Court</title>
+  
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <style>
+    /* Basic page setup */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa; /* light background */
+      color: #333;
+      line-height: 1.6; /* easier to read */
+    }
+
+    a { text-decoration: none; color: inherit; } /* no underlines */
+    a:hover { color: #1e305f; } /* darker on hover */
+
+    /* Header at top */
+    header {
+      background: #132040; /* dark blue */
+      color: #fff;
+      display: flex;
+      justify-content: space-between; /* logo left, nav right */
+      align-items: center;
+      height: 212px;
+      padding: 0 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-title a {
+      display: flex;
+      align-items: center; /* makes whole logo clickable */
+    }
+
+    .logo-title img {
+      height: 180px;
+      width: auto;
+    }
+
+    .logo-title h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Navigation links */
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      font-weight: 500;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover, nav a.active { 
+      background: #1e305f; /* darker when hovered */
+    }
+
+    /* Hero section with background image */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1581091215365-9f178b6ee8a6?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      /* image centered, covers whole area */
+      color: #000000;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* makes text readable */
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px; /* keeps text from getting too wide */
+      margin: auto;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Main content area */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto; /* centers content */
+      padding: 0 2rem;
+    }
+
+    section {
+      background: #fff;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #132040; /* dark blue headings */
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* Contact form styling */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* space between fields */
+    }
+
+    /* Form input fields */
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      width: 100%;
+      box-sizing: border-box; /* makes width work properly */
+    }
+
+    /* Submit button */
+    button {
+      background-color: #132040; /* dark blue */
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #1e305f; /* darker on hover */
+    }
+
+    /* Footer */
+    footer {
+      background: #132040;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p { 
+      margin: 0.5rem 0; 
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .logo-title img { 
+        height: 180px; 
+      }
+      nav { 
+        justify-content: center; 
+        flex-wrap: wrap; /* wraps on small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top header -->
+<header>
+  <div class="logo-title">
+    <a href="index.html">
+       <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+      <h1>McCreary County Fiscal Court</h1>
+    </a>
+  </div>
+  <!-- Main navigation -->
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="events.html">Events</a>
+      <a href="records.html">Records</a>
+      <a href="tourism.html">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html"class="active">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+  </nav>
+</header>
+
+  <!-- Hero section -->
+  <div class="hero">
+    <h2>Contact Us</h2>
+    <p>We're here to assist you. Reach out to the Fiscal Court office with any questions, requests, or feedback.</p>
+  </div>
+
+  <!-- Main content -->
+  <main>
+    <!-- Office info section -->
+    <section>
+      <h2>Office Information</h2>
+      <p><strong>Address:</strong> 1 North Main Street, Whitley City, KY 42653</p>
+      <p><strong>Phone:</strong> 606-376-2413</p>
+      <p><strong>Email:</strong> <a href="mailto:info@mccrearycounty.com">info@mccrearycounty.com</a></p>
+    </section>
+
+    <!-- Contact form section -->
+    <section>
+      <h2>Send Us a Message</h2>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 McCreary County Fiscal Court</p>
+    <p>Whitley City, KY | Phone: 606-376-2413</p>
+  </footer>
+
+</body>
+</html>

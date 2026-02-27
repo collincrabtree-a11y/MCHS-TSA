@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McCreary County Fiscal Court</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  /* Basic setup */
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; 
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f7fb;
+    color: #333; 
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4 { color: #132040; font-weight: 600; margin: 0; }
+  a { text-decoration: none; color: inherit; }
+  ul { list-style: none; padding: 0; margin: 0; }
+
+  /* Header */
+  header {
+    background: #132040;
+    color: #fff;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    height: 212px;
+    padding: 0 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+  }
+  .logo-title { display: flex; align-items: center; gap: 1rem; }
+  .logo-title a { display: flex; align-items: center; }
+  .logo-title img { height: 180px; width: auto; border-radius: 0; }
+  .logo-title h1 { font-size: 1.6rem; color: #fff; margin: 0; }
+  nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  nav a { 
+    color: #fff; 
+    font-weight: 500; 
+    font-size: 1rem; 
+    padding: 0.4rem 0.8rem; 
+    border-radius: 4px; 
+    transition: background 0.3s ease; 
+  }
+  nav a:hover, nav a.active { background: #1e305f; }
+
+  /* Main content */
+  main { max-width: 1300px; margin: 2rem auto; padding: 0 1.5rem; }
+  section { 
+    background: #fff; 
+    padding: 2rem; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08); 
+    margin-bottom: 2rem; 
+  }
+  section h2 { margin-bottom: 1rem; font-size: 1.8rem; }
+  section h3 { margin-top: 1rem; font-size: 1.25rem; }
+  section p { margin-bottom: 1rem; text-align: justify; }
+  ul li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+
+  /* Officials grid */
+  .officials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem; 
+  }
+  .official-card {
+    background: #f9fbff; 
+    border: 1px solid #dfe4ee; 
+    border-radius: 12px;
+    padding: 1.5rem; 
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  .official-card:hover { 
+    transform: translateY(-6px) scale(1.03); 
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15); 
+  }
+  .official-card img { 
+    width: 110px; 
+    height: 110px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    margin-bottom: 0.5rem; 
+  }
+  .official-card h4 { margin: 0.5rem 0; }
+  .official-card p { 
+    margin: 0.3rem 0; 
+    font-size: 0.9rem; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 0.4rem; 
+    flex-wrap: wrap; 
+  }
+  .official-card p i { color: #2c4d92; }
+  .official-card p a { color: #132040; }
+
+  /* Tooltip CSS */
+  .official-card::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #132040;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+  }
+  .official-card::before {
+    content: '';
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #132040 transparent transparent transparent;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .official-card:hover::after,
+  .official-card:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px);
+  }
+
+  /* Footer */
+  footer { 
+    background: #132040; 
+    color: #fff; 
+    text-align: center; 
+    padding: 2.5rem 1rem; 
+    margin-top: 3rem; 
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    header { flex-direction: column; align-items: center; }
+    nav { width: 100%; justify-content: center; margin-top: 0.8rem; }
+    .logo-title { flex-direction: column; align-items: center; }
+    .logo-title h1 { font-size: 1.5rem; text-align: center; }
+    section { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-title">
+    <a href="index.html">
+       <img src="images/McCrearyCountyFiscalCourt.png" alt="Fiscal Court Logo">
+      <h1>McCreary County Fiscal Court</h1>
+    </a>
+  </div>
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html"class="active">About Us</a>
+      <a href="events.html">Events</a>
+      <a href="records.html">Records</a>
+      <a href="tourism.html">Tourism</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+      <a href="tsaworklog.html">Reference Page</a>
+  </nav>
+</header>
+
+<main>
+  <section id="about">
+    <h2>About Us</h2>
+    <p><strong>McCreary County Government</strong> serves the community with transparency, accountability, and excellence. Our elected officials work collaboratively to meet the needs of residents and provide effective governance.</p>
+    <ul>
+      <li><i class="fa-solid fa-gavel"></i> Fiscal Court meets monthly to set policies, approve budgets, and oversee county claims.</li>
+      <li><i class="fa-solid fa-handshake-angle"></i> Officials collaborate to maintain transparency and community engagement.</li>
+      <li><i class="fa-solid fa-balance-scale"></i> Responsible budgeting ensures essential public services are fully supported.</li>
+      <li><i class="fa-solid fa-users"></i> Multiple elected offices—including Clerk, Sheriff, Attorney, Coroner, Jailer, and PVA—serve citizens efficiently.</li>
+      <li><i class="fa-solid fa-file-lines"></i> Public records are accessible under the Open Records Act for full transparency.</li>
+    </ul>
+  </section>
+
+  <section id="officials">
+<h2>County Officials</h2>
+<div class="officials-grid">
+
+  <div class="official-card" data-tooltip="Oversees county administration, sets policies, and manages budgets.">
+    <img src="images/Jimmie-Bevo-Greene.jpg" alt="Jimmie W Greene, II">
+    <h4>Jimmie W Greene, II</h4>
+    <p>Judge-Executive</p>
+    <p>PO Box 579, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2413 | Fax: 606-376-9499</p>
+    <p>Email: <a href="mailto:bgreene@mccrearycounty.com">bgreene@mccrearycounty.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Represents District 1 and votes on county policies.">
+   <img src="images/Bill-Hale.png" alt="Bill Hale">
+    <h4>Bill Hale</h4>
+    <p>Magistrate - District 1</p>
+    <p>Phone: 606-515-3315</p>
+    <p>Email: <a href="mailto:bill.hale@jrninc.com">bill.hale@jrninc.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Represents District 2 and participates in local legislation.">
+   <img src="images/Bill-Taylor.png" alt="Bill Taylor">
+    <h4>Bill Taylor</h4>
+    <p>Magistrate - District 2</p>
+    <p>Phone: 606-310-8350</p>
+    <p>Email: <a href="mailto:w.taylor@highland.net">w.taylor@highland.net</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Represents District 3 and works on local community issues.">
+ <img src="images/Bobby-Strunk.png" alt="Bobby Strunk">
+    <h4>Bobby Strunk</h4>
+    <p>Magistrate - District 3</p>
+    <p>Phone: 606-310-0266</p>
+    <p>Email: <a href="mailto:bobsbodyshop23@gmail.com">bobsbodyshop23@gmail.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Represents District 4 and votes on county policies.">
+   <img src="images/Randy-Maxwell.png" alt="Randy Maxwell">
+    <h4>Randy Maxwell</h4>
+    <p>Magistrate - District 4</p>
+    <p>Phone: 606-310-0746</p>
+    <p>Email: <a href="mailto:randymaxwell1965@gmail.com">randymaxwell1965@gmail.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Handles county records, marriage licenses, deeds, and elections.">
+    <img src="images/Eric-Haynes.png" alt="Eric Haynes">
+    <h4>Eric Haynes</h4>
+    <p>County Clerk</p>
+    <p>PO Box 699, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2411 | Fax: 606-376-3898</p>
+    <p>Email: <a href="mailto:eric.haynes@ky.gov">eric.haynes@ky.gov</a></p>
+    <p>Website: <a href="http://www.mccrearycountyclerk.com" target="_blank">www.mccrearycountyclerk.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Maintains law enforcement and public safety in McCreary County.">
+    <img src="images/David-Sampson.png" alt="David Sampson">
+    <h4>David Sampson</h4>
+    <p>Sheriff</p>
+    <p>PO Box 627, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2322</p>
+    <p>Website: <a href="http://www.mccrearysheriff.com" target="_blank">www.mccrearysheriff.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Provides legal representation for the county and advises officials.">
+<img src="images/Austin-Price.png" alt="Austin Price">
+    <h4>Austin Price</h4>
+    <p>County Attorney</p>
+    <p>PO Box 700, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2333 | Fax: 606-376-8345</p>
+  </div>
+
+  <div class="official-card" data-tooltip="Manages the county jail and prisoner transport operations.">
+<img src="images/Jessie-Hatfield.png" alt="Jessie Hatfield">
+    <h4>Jessie Hatfield</h4>
+    <p>County Jailer / Transport Officer</p>
+    <p>PO Box 579, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2413 | Fax: 606-376-9499</p>
+  </div>
+
+  <div class="official-card" data-tooltip="Handles death investigations and coroner duties.">
+<img src="images/Timothy-Corder.png" alt="Timothy Corder">
+    <h4>Timothy "Tim" Corder</h4>
+    <p>County Coroner</p>
+  </div>
+
+  <div class="official-card" data-tooltip="Assesses property values for taxation purposes.">
+<img src="images/Dwight-Ross.png" alt="Dwight Ross">
+    <h4>Dwight Ross</h4>
+    <p>Property Valuation Administrator (PVA)</p>
+    <p>PO Box 609, Whitley City, KY 42653</p>
+    <p>Phone: 606-376-2514 | Fax: 606-376-4152</p>
+  </div>
+
+  <div class="official-card" data-tooltip="Manages county finances and human resources.">
+  <img src="images/Debbie-Gilreath.png" alt="Debbie Gilreath">
+    <h4>Debbie Gilreath</h4>
+    <p>Finance Officer and HR Director</p>
+    <p>Phone: 606-376-2413</p>
+    <p>Email: <a href="mailto:debbie@mccrearycounty.com">debbie@mccrearycounty.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Leads economic development projects and initiatives.">
+<img src="images/Joshua-Stephens.png" alt="Josh Stephens">
+    <h4>Joshua Stephens</h4>
+    <p>Executive Assistant / Economic Development Director</p>
+    <p>Phone: 606-376-2413 | Fax: 606-376-9499</p>
+    <p>Email: <a href="mailto:Joshua@mccrearycounty.com">Joshua@mccrearycounty.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Oversees county roads, maintenance, and infrastructure.">
+<img src="images/Tony-Kidd.png" alt="Tony Kidd">
+    <h4>Tony Kidd</h4>
+    <p>Road Department Supervisor</p>
+    <p>Phone: 606-376-8796</p>
+    <p>Email: <a href="mailto:tony@mccrearycounty.com">tony@mccrearycounty.com</a></p>
+  </div>
+
+  <div class="official-card" data-tooltip="Coordinates emergency management and solid waste services.">
+<img src="images/Stephen-McKinney.png" alt="Stephen McKinney">
+    <h4>Stephen McKinney</h4>
+    <p>Emergency Management Director / Solid Waste Coordinator</p>
+    <p>Phone: 606-376-0267 | Fax: 606-376-9499</p>
+    <p>Email: <a href="mailto:stephen@mccrearycounty.com">stephen@mccrearycounty.com</a></p>
+    <p>Website: <a href="https://www.mccrearycounty.com/emergency-management" target="_blank">Emergency Management</a></p>
+  </div>
+
+    <!-- Occupational Tax Administrator -->
+  <div class="official-card" data-tooltip="Manages business and occupational taxes for the county.">
+    <img src="C:\Users\Admin\Pictures\Screenshots\Screenshot 2026-02-27 134534.png" alt="Stephanie Tucker">
+    <h4>Stephanie Tucker</h4>
+    <p>Occupational Tax Administrator</p>
+    <p>Phone: 606-376-1322 | Fax: 606-376-4319</p>
+    <p>Email: <a href="mailto:stephanie@mccrearycounty.com">stephanie@mccrearycounty.com</a></p>
+    <p>Website: <a href="https://www.mccrearycounty.com/occupational-tax" target="_blank">McCreary County Occupational Tax</a></p>
+  </div>
+
+  <!-- Tourism Director -->
+  <div class="official-card" data-tooltip="Promotes tourism and manages local visitor services.">
+<img src="images/Michelle-Perry.png" alt="Michelle Perry">
+    <h4>Michelle Perry</h4>
+    <p>Tourism Director</p>
+    <p>Phone: 606-376-3008</p>
+    <p>Email: <a href="mailto:tourism@mccrearycounty.com">tourism@mccrearycounty.com</a></p>
+    <p>Website: <a href="https://www.mccrearytourism.com" target="_blank">www.mccrearytourism.com</a></p>
+  </div>
+
+  <!-- EMS / 911 Director -->
+  <div class="official-card" data-tooltip="Manages emergency medical services and 911 operations.">
+<img src="images/Jimmy-Barnett.png" alt="Jimmy Barnett">
+    <h4>Jimmy Barnett</h4>
+    <p>EMS / 911 Director</p>
+    <p>Phone: 606-376-5063 | 606-376-9117</p>
+    <p>Email: <a href="mailto:jimmy@mccrearycounty.com">jimmy@mccrearycounty.com</a></p>
+  </div>
+
+  <!-- Parks and Recreation -->
+  <div class="official-card" data-tooltip="Oversees parks, recreation programs, and local facilities.">
+    <img src="images/Melissa-Vanover.png">
+    <h4>Melissa Vanover</h4>
+    <p>Park Manager</p>
+    <p>Phone: 606-376-7275</p>
+    <p>Email: <a href="mailto:melissa@mccrearycounty.com">melissa@mccrearycounty.com</a></p>
+    <p>Website: <a href="https://www.mccrearycounty.com/parks" target="_blank">McCreary County Parks</a></p>
+  </div>
+
+  <!-- Animal Control -->
+  <div class="official-card" data-tooltip="Handles animal control services and stray animal management.">
+    <img src="C:\Users\Admin\Pictures\Screenshots\Screenshot 2026-02-27 093650.png" alt="Greg Smith">
+    <h4>Greg Smith</h4>
+    <p>Animal Control</p>
+    <p>Phone: 606-310-8667 | 606-310-1427</p>
+    <p>Email: <a href="mailto:animalcontrol@mccrearycounty.com">animalcontrol@mccrearycounty.com</a></p>
+  </div>
+
+  <!-- ABC Administrator -->
+  <div class="official-card" data-tooltip="Regulates alcohol beverage control and licensing.">
+<img src="images/Brenda-Blevins.png" alt="Brenda Blevins">
+    <h4>Brenda Blevins</h4>
+    <p>ABC Administrator</p>
+    <p>Phone: 606-376-2337</p>
+    <p>Email: <a href="mailto:mccrearyabc@outlook.com">mccrearyabc@outlook.com</a></p>
+  </div>
+
+</div> <!-- end officials-grid -->
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 McCreary County Fiscal Court</p>
+  <p>Whitley City, KY | Phone: 606-376-2413</p>
+</footer>
+
+</body>
+</html>
